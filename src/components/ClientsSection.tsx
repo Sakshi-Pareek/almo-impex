@@ -44,7 +44,7 @@ const ClientsSection = () => {
 
   return (
     <section className="lg:py-20 py-16 bg-[#F9FAFB]">
-      <div className="container-custom">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

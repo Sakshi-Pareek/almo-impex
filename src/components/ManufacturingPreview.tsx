@@ -33,8 +33,8 @@ const features = [
 
 const ManufacturingPreview = () => {
   return (
-    <section className="lg:py-20 py-16 bg-[#d6f6f9]">
-      <div className="container-custom">
+    <section className="lg:py-20 sm:py-16 py-12">
+      <div className="max-w-7xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -42,10 +42,14 @@ const ManufacturingPreview = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <div className="h-1 w-16 bg-[#006C70] mx-auto mb-3"></div>
-          <h2 className="section-title">Manufacturing Excellence</h2>
+         <div className="flex flex-col mb-4 justify-center items-center">
+            <h2 className="uppercase tracking-widest text-[#006C70] font-bold text-xl mb-1">
+            Manufacturing Excellence
+            </h2>
+            <div className="h-1 w-16 bg-[#006C70] rounded-full mb-2"></div>
+          </div>
           <p className="section-subtitle mx-auto">
-            Our state-of-the-art manufacturing facility ensures premium quality and consistent output.
+          Our cutting-edge manufacturing facility is dedicated to delivering exceptional quality and unwavering consistency in every product we create.
           </p>
         </motion.div>
         
@@ -57,24 +61,29 @@ const ManufacturingPreview = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow"
+              className="relative overflow-hidden rounded-xl lg:p-6 p-3 bg-white text-[#006C70] text-center border border-[#006C70] shadow-[0_0_4px_#006C70] cursor-pointer hover:shadow-[0_0_8px_#006C70] transition-all duration-300"
             >
-              <div className="flex justify-center mb-4">
-                <div className="p-3 bg-[#CCF7FB] rounded-full">
-                  <feature.icon className="h-6 w-6 text-[#056773]" />
+              <div className="flex flex-col items-center text-center text-[#006C70]">
+                <div className="p-4 rounded-full mb-4 bg-[#006C70]/20">
+                  <feature.icon className="h-6 w-6 text-[#006C70]" />
                 </div>
+                <h3 className="text-xl font-bold mb-3 text-[#006C70]">{feature.title}</h3>
+                {feature.value ? (
+                  <div className="text-2xl font-bold mb-2 text-[#006C70]">
+                    <AnimatedCounter
+                      end={feature.value} 
+                      prefix={feature.prefix || ""}
+                      suffix={feature.suffix || ""}
+                    />
+                  </div>
+                ) : (
+                  <p className="text-lg font-semibold mb-2 text-[#006C70]">{feature.text}</p>
+                )}
+                {feature.label && (
+                  <p className="text-[#006C70]/90">{feature.label}</p>
+                )}
               </div>
-              <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-              {feature.value ? (
-                <AnimatedCounter
-                  end={feature.value}
-                  prefix={feature.prefix || ""}
-                  suffix={feature.suffix || ""}
-                />
-              ) : (
-                <p className="text-gray-600">{feature.text}</p>
-              )}
-              {feature.label && <p className="text-gray-600">{feature.label}</p>}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
             </motion.div>
           ))}
         </div>

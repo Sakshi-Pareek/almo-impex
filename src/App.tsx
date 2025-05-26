@@ -22,7 +22,7 @@ function App() {
   if (isLoading) {
     return (
       <div className="h-screen w-full flex items-center justify-center bg-[#056773]">
-        <span className="loader"></span>
+       <div className="loader"></div>
       </div>
     );
   }

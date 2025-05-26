@@ -60,8 +60,8 @@ const ProductsPreview = () => {
     : products.filter(product => product.category === activeCategory);
 
   return (
-    <section className="lg:py-20 py-16">
-      <div className="container-custom">
+    <section className="lg:py-20 sm:py-16 py-12 bg-[#D6F6F9]">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

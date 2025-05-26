@@ -36,7 +36,7 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = '', prefix = '' }: Ani
   }, [inView, end, duration]);
 
   return (
-    <div ref={ref} className="text-center">
+    <div ref={ref} className="text-center"> 
       <div className="text-3xl xl:text-4xl font-bold text-[#006C70]">
         {prefix}
         {count.toLocaleString()}
